@@ -1,9 +1,15 @@
-import './style/components/App.css';
+
+import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
+import Home from "./components/Home/Home";
 
 function App() {
   return (
-    <div>
-    </div>
+    <Router>
+      <Routes>
+        {/* ホーム */}
+        <Route path="/" element={<Home />} />
+      </Routes>
+    </Router>
   );
 }
 
