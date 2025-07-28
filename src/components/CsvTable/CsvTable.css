@@ -1,0 +1,245 @@
+/* CSVテーブルコンテナのスタイル */
+.csv-table-container {
+  padding: 20px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* 検索コンテナのスタイル */
+.csv-search-container {
+  margin-bottom: 20px;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+/* 検索入力ボックスのスタイル */
+.csv-search-input {
+  flex: 1;
+  min-width: 250px;
+  max-width: 100%;
+  padding: 12px 16px;
+  border: 2px solid #dee2e6;
+  border-radius: 8px;
+  font-size: 14px;
+  transition: border-color 0.2s ease;
+}
+
+.csv-search-input:focus {
+  outline: none;
+  border-color: #007bff;
+  box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.1);
+}
+
+/* 検索情報表示のスタイル */
+.csv-search-info {
+  padding: 8px 12px;
+  background-color: #e9ecef;
+  border-radius: 6px;
+  font-size: 14px;
+  color: #495057;
+  white-space: nowrap;
+}
+
+/* テーブルの基本スタイル */
+.csv-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 20px 0;
+  background-color: white;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+/* テーブルヘッダーのスタイル */
+.csv-table thead {
+  background-color: #f8f9fa;
+}
+
+.csv-table th {
+  padding: 12px 16px;
+  text-align: left;
+  font-weight: 600;
+  color: #333;
+  border-bottom: 2px solid #dee2e6;
+  font-size: 14px;
+}
+
+/* ヘッダーコンテンツのスタイル */
+.header-content {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+}
+
+/* ソートボタンのスタイル */
+.sort-button {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 4px 8px;
+  border-radius: 4px;
+  font-size: 12px;
+  color: #6c757d;
+  transition: all 0.2s ease;
+  min-width: 24px;
+  height: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative; /* ツールチップの位置決めのため */
+}
+
+.sort-button:hover {
+  background-color: #e9ecef;
+  color: #495057;
+}
+
+.sort-button.active {
+  background-color: #007bff;
+  color: white;
+}
+
+.sort-button.active:hover {
+  background-color: #0056b3;
+}
+
+/* ツールチップのスタイル */
+.sort-button::before {
+  content: attr(data-tooltip);
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: #333;
+  color: white;
+  padding: 6px 10px;
+  border-radius: 4px;
+  font-size: 12px;
+  white-space: nowrap;
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.2s ease;
+  z-index: 1000;
+  margin-top: 5px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* ツールチップの矢印 */
+.sort-button::after {
+  content: '';
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  border: 4px solid transparent;
+  border-bottom-color: #333;
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.2s ease;
+  z-index: 1000;
+  margin-top: 1px;
+}
+
+/* ホバー時にツールチップを表示 */
+.sort-button:hover::before,
+.sort-button:hover::after {
+  opacity: 1;
+  visibility: visible;
+}
+
+/* テーブルセルのスタイル */
+.csv-table td {
+  padding: 12px 16px;
+  border-bottom: 1px solid #dee2e6;
+  font-size: 14px;
+  color: #555;
+}
+
+/* テーブル行のホバー効果 */
+.csv-table tbody tr:hover {
+  background-color: #f8f9fa;
+  transition: background-color 0.2s ease;
+}
+
+/* 最後の行のボーダーを削除 */
+.csv-table tbody tr:last-child td {
+  border-bottom: none;
+}
+
+/* ローディング状態のスタイル */
+.csv-loading {
+  text-align: center;
+  padding: 40px;
+  font-size: 16px;
+  color: #666;
+}
+
+/* エラー状態のスタイル */
+.csv-error {
+  text-align: center;
+  padding: 40px;
+  color: #dc3545;
+  background-color: #f8d7da;
+  border: 1px solid #f5c6cb;
+  border-radius: 8px;
+  margin: 20px;
+}
+
+/* データなし状態のスタイル */
+.csv-no-data {
+  text-align: center;
+  padding: 40px;
+  color: #6c757d;
+  font-style: italic;
+}
+
+/* 情報表示エリアのスタイル */
+.csv-info {
+  margin-top: 16px;
+  padding: 12px;
+  background-color: #e9ecef;
+  border-radius: 6px;
+  font-size: 14px;
+  color: #495057;
+  text-align: center;
+}
+
+/* レスポンシブ対応 */
+@media (max-width: 768px) {
+  .csv-table-container {
+    padding: 10px;
+  }
+  
+  .csv-search-container {
+    flex-direction: column;
+    align-items: stretch;
+  }
+  
+  .csv-search-input {
+    min-width: auto;
+  }
+  
+  .csv-table {
+    font-size: 12px;
+  }
+  
+  .csv-table th,
+  .csv-table td {
+    padding: 8px 12px;
+  }
+  
+  .header-content {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 4px;
+  }
+  
+  .sort-button {
+    align-self: flex-end;
+  }
+} 
