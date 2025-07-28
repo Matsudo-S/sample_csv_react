@@ -1,70 +1,85 @@
-# Getting Started with Create React App
+# CSV Table React Application
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+CSV ファイルを読み込んでテーブル形式で表示し、検索・ソート機能を提供する React アプリケーションです。
 
-## Available Scripts
+## 機能
 
-In the project directory, you can run:
+- 📊 CSV ファイルの読み込みとテーブル表示
+- 🔍 リアルタイム検索機能（全項目対応）
+- 📈 各列でのソート機能（昇順/降順）
+- 🎨 モダンな UI/UX デザイン
+- 📱 レスポンシブ対応
 
-### `npm start`
+## セットアップ手順
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+### 1. リポジトリのクローン
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+```bash
+git clone git@github.com:Matsudo-S/sample_csv_react.git
+cd sample_csv_react
+```
 
-### `npm test`
+### 2. 依存関係のインストール
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+```bash
+npm install
+```
 
-### `npm run build`
+### 3. アプリケーションの起動
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+```bash
+npm start
+```
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+ブラウザで `http://localhost:3000` にアクセスしてアプリケーションを確認できます。
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+## 使用技術
 
-### `npm run eject`
+- **React 19.1.0** - UI ライブラリ
+- **React Router DOM 7.7.1** - ルーティング
+- **PapaParse** - CSV パースライブラリ
+- **Create React App** - 開発環境
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+## ファイル構成
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+```
+src/
+├── components/
+│   ├── CsvTable/
+│   │   ├── CsvTable.jsx    # CSVテーブル表示コンポーネント
+│   │   └── CsvTable.css    # テーブルスタイル
+│   ├── Header/
+│   │   └── Header.jsx      # ヘッダーコンポーネント
+│   └── Home/
+│       ├── Home.js         # ホームページ
+│       └── Home.css        # ホームページスタイル
+├── App.js                  # メインアプリケーション
+└── index.js               # エントリーポイント
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+public/
+└── sample.csv             # サンプルCSVファイル
+```
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+## セキュリティ注意事項
 
-## Learn More
+現在のバージョンには一部のセキュリティ脆弱性が含まれています。本番環境で使用する場合は、以下のコマンドで修正することを推奨します：
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+```bash
+npm audit fix --force
+```
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+ただし、このコマンドは破壊的変更を含む可能性があるため、事前にバックアップを取ることをお勧めします。
 
-### Code Splitting
+## カスタマイズ
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+### CSV ファイルの変更
 
-### Analyzing the Bundle Size
+`public/sample.csv` を編集することで、表示するデータを変更できます。
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+### スタイルの変更
 
-### Making a Progressive Web App
+`src/components/CsvTable/CsvTable.css` を編集することで、テーブルの見た目をカスタマイズできます。
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+## ライセンス
 
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+MIT License
